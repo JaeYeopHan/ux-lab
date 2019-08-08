@@ -1,11 +1,14 @@
 # UX-Lab
 
+이게 웹이야? 하는 그날까지 🚀
+
 ### Table of Contents
 
-- [Phase 1. War of Input]('#phase-1.-War-of-Input-tag')
+- [Phase 1. War of Input](#phase-1.-War-of-Input-tag)
+- [Phase 2. App Like Transition with Pagination](phase-2.-app-like-transition-with-pagination')
 
 
-## Phase 1. War of Input tag
+# Phase 1. War of Input tag
 
 Webview에서 input과 관련하여 맞딱뜨린 이슈들을 정리한다. 기본적으로 input 태그를 클릭하면 키패드가 올라온다. 그리고 그 때부터 UX 담당자 분들과의 불협화음이 시작된다.
 
@@ -53,6 +56,13 @@ Webview에서 input과 관련하여 맞딱뜨린 이슈들을 정리한다. 기�
     - 즉 키패드가 없는 경우를 키패드 올라왔을 경우의 정중앙으로 위치시키면 vertical 중앙에 위치시킬 수 있다.
   - AND의 경우에는 디바이스에서 viewport를 조정하기 때문에 적당한 위치로 알아서 조정한다.
 
+---
+
+# Phase 2. App Like Transition with Pagination
+
+App에서는 화면 간 이동 시, 부드러운 애니메이션과 함께 transition 같은 것이 진행된다. 웹에서도 해보자.
+
+![pagination_transition_gif](./assets/pagination_transition.gif)
 
 (To Be Continue...)
 
@@ -61,3 +71,4 @@ Webview에서 input과 관련하여 맞딱뜨린 이슈들을 정리한다. 기�
 <sub><sup>Project by <a href="https://github.com/JaeYeopHan">@Jbee</a></sup></sub><small>✌</small>
 
 </div>
+
