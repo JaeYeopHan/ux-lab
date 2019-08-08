@@ -38,7 +38,8 @@ Webview에서 input과 관련하여 맞딱뜨린 이슈들을 정리한다. 기�
 
 → 특정 모달 안에 있는 input도 가능하다! 즉 모달이 노출됨과 동시에 키패드를 띄울 수 있다.
 
-![route-immediate-open-keypad](./assets/route-immediate-open-keypad.mp4)
+![route-immediate-open-keypad](./assets/route-immediate-open-keypad.gif)
+![modal-immediate-open-keypad](./assets/modal-immediate-open-keypad.gif)
 
 ## Q3. 키패드 바깥 부분을 클릭해도 키패드가 내려가지 않도록 할 수 있나요?
 
@@ -50,6 +51,8 @@ Webview에서 input과 관련하여 맞딱뜨린 이슈들을 정리한다. 기�
 
 - 특정 target이 여러개 일 경우, 전부 click handler를 등록해줘야 한다.
 - 이 방식으로 가능은 하지만, 코드로 focus를 강제해줄 경우, 커서 깜빡임이 사라진다.
+
+![prevent-hide-keypad](./assets/prevent-hide-keypad.gif)
 
 ## Case 4. 키패드에 영향받지 않고 정중앙 위치
 
