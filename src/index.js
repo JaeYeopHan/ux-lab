@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
+import vConsole from 'vconsole'
 
 import './reset.css'
 import './index.css'
@@ -9,14 +10,26 @@ function WorkSpace() {
   const [isFocus, setFocus] = React.useState(false)
   const [isModalOpen, toggleModal] = React.useState(false)
 
+  const controlledInput = React.useRef()
+
   const closeModal = (e) => {
     if (e.target.classList.contains('layer_wrap')) {
       toggleModal(false)
     }
   }
 
-  console.log('isModalOpen: ', isModalOpen)
-  
+  const toFocus = (e) => {
+    console.log(e)
+    console.log(e.target)
+    console.log(e.currentTarget)
+    if (!controlledInput) {
+      return
+    }
+    if (e) {
+      controlledInput.current.focus()
+    }
+  }
+
   return (
     <>
       <div className={`container ${isFocus ? 'input-focused' : ''}`}>
@@ -27,11 +40,10 @@ function WorkSpace() {
           onFocus={(e) => {
             setFocus(true)
           }}
-          onBlur={(e) => {
-            setFocus(false)
-          }}
+          onBlur={toFocus}
           autoComplete="off"
           autoFocus={true}
+          ref={controlledInput}
         />
         <button className="modal-trigger-button" onClick={() => toggleModal(true)}>modal open</button>
         <div>
@@ -70,6 +82,8 @@ function App() {
     </Router>
   )
 }
+
+new vConsole()
 
 ReactDOM.render(
   <App />,

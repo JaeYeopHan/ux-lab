@@ -8306,6 +8306,10 @@ vary@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
 
+vconsole@^3.3.2:
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/vconsole/-/vconsole-3.3.2.tgz#07424f8de2e5e2586c504042093948435ed2de06"
+
 vendors@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/vendors/-/vendors-1.0.2.tgz#7fcb5eef9f5623b156bcea89ec37d63676f21801"
