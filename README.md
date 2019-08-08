@@ -1,68 +1,63 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# UX-Lab
 
-## Available Scripts
+### Table of Contents
 
-In the project directory, you can run:
+- [Phase 1. War of Input]('#phase-1.-War-of-Input-tag')
 
-### `npm start`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Phase 1. War of Input tag
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Webview에서 input과 관련하여 맞딱뜨린 이슈들을 정리한다. 기본적으로 input 태그를 클릭하면 키패드가 올라온다. 그리고 그 때부터 UX 담당자 분들과의 불협화음이 시작된다.
 
-### `npm test`
+## Q1. 키패드 위에 버튼을 둘 수 있나요?
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+하단에 fixed position으로 button이 있는 상황을 가정하자. 하단에 fixed position으로 줬으니 이 버튼은 키패드 바로 위쪽에 붙어있기를 기대하기 마련이다.
 
-### `npm run build`
+**하지만,**
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### iOS
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+- 하단 버튼을 덮으면서 키패드가 올라온다.
+- 그리고 스크롤이 없었다가 스크롤이 발생한다.
+  - 즉 화면에서 보이는 영역이 viewport보다 작아졌다고 인식을 하게 된다.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### AND
 
-### `npm run eject`
+- 기대한 것처럼 키패드 바로 위쪽에 붙어있는다.
+- 그리고 스크롤도 발생하지 않는다.
+  - 즉 viewport를 화면에서 보이는 영역으로 잡는다.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Q2. 화면으로 진입하자마자 키패드를 띄울 수 있나요?
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+한 화면에 input tag 하나만 존재하는 경우가 있을 수 있다. 보통 이럴 경우 화면에 진입하자마자 키패드를 띄우면 사용성이 증대될 것이다. 사용자가 input 태그를 한 번 더 클릭하여 키패드를 띄우는 것보다 action이 하나 줄어들기 때문이다.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+이 요구 사항은 iOS, AND 둘 다 `autoFocus={true}`를 주면 된다.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+→ 특정 모달 안에 있는 input도 가능하다! 즉 모달이 노출됨과 동시에 키패드를 띄울 수 있다.
 
-## Learn More
+## Q3. 키패드 바깥 부분을 클릭해도 키패드가 내려가지 않도록 할 수 있나요?
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Try 1. `onBlur` 이벤트 발생 시, focus를 강제한다.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- 키패드에 있는 '완료' 버튼을 클릭하더라도 닫히지 않아서 onBlur를 건드릴 수 없다.
 
-### Code Splitting
+### Try 2. 특정 target을 잡은 후, focus를 강제한다.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+- 특정 target이 여러개 일 경우, 전부 click handler를 등록해줘야 한다.
+- 이 방식으로 가능은 하지만, 코드로 focus를 강제해줄 경우, 커서 깜빡임이 사라진다.
 
-### Analyzing the Bundle Size
+## Case 4. 키패드에 영향받지 않고 정중앙 위치
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+- 모달의 크기에 따라 다르겠지만...
+  - iOS인 경우에는 viewport를 조정하지 않기 때문에 키패드가 올라오기 전과 동일하다.
+    - 즉 키패드가 없는 경우를 키패드 올라왔을 경우의 정중앙으로 위치시키면 vertical 중앙에 위치시킬 수 있다.
+  - AND의 경우에는 디바이스에서 viewport를 조정하기 때문에 적당한 위치로 알아서 조정한다.
 
-### Making a Progressive Web App
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+(To Be Continue...)
 
-### Advanced Configuration
+<div align="center">
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+<sub><sup>Project by <a href="https://github.com/JaeYeopHan">@Jbee</a></sup></sub><small>✌</small>
 
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+</div>
