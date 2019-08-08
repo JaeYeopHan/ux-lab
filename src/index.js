@@ -7,43 +7,31 @@ import './reset.css'
 import './index.css'
 
 function WorkSpace() {
-  const [isFocus, setFocus] = React.useState(false)
   const [isModalOpen, toggleModal] = React.useState(false)
 
   const controlledInput = React.useRef()
 
-  const closeModal = (e) => {
-    if (e.target.classList.contains('layer_wrap')) {
+  const onClickContainer = (e) => {
+    if (e.target.classList.contains('close_modal')) {
       toggleModal(false)
     }
   }
 
-  const toFocus = (e) => {
-    console.log(e)
-    console.log(e.target)
-    console.log(e.currentTarget)
-    if (!controlledInput) {
-      return
-    }
-    if (e) {
-      controlledInput.current.focus()
+  const onClickLayer = (e) => {
+    if (e.target.classList.contains('focus_input')) {
+      controlledInput && controlledInput.current.focus()
     }
   }
 
   return (
     <>
-      <div className={`container ${isFocus ? 'input-focused' : ''}`}>
+      <div className='container'>
         <input
           className="input"
           type="text"
           name="name"
-          onFocus={(e) => {
-            setFocus(true)
-          }}
-          onBlur={toFocus}
           autoComplete="off"
           autoFocus={true}
-          ref={controlledInput}
         />
         <button className="modal-trigger-button" onClick={() => toggleModal(true)}>modal open</button>
         <div>
@@ -51,10 +39,11 @@ function WorkSpace() {
         </div>
       </div>
       {isModalOpen && (
-      <div className="layer_wrap _dialog" onClick={closeModal}>
-        <div className="layer_inner layer_v1">
-          <p className="desc portals_scroll">
-            <input className="input" autoFocus={true}></input>
+      <div className="layer_wrap close_modal" onClick={onClickContainer}>
+        <div className="layer_inner layer_v1 focus_input" onClick={onClickLayer}>
+          <p className="desc">
+            <input className="input" type="tel" autoFocus={true} ref={controlledInput}></input>
+            <button onClick={() => toggleModal(false)}>close</button>
           </p>
         </div>
       </div>

@@ -6,7 +6,7 @@
 
 .input {
   margin: auto;
-  border: 1px solid black;
+  border: 1px solid orange;
   height: 36px;
   width: 100%;
   box-sizing: border-box;
@@ -18,7 +18,8 @@
   bottom: 0px;
   width: 100%;
   margin: auto;
-  background-color: #4267B2;
+  background-color: #FF9911;
+  border: 1px solid #FF7711;
   box-sizing: border-box;
   height: 48px;
   transition: bottom 0.3s;
