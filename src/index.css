@@ -13,9 +13,6 @@
   font-size: 28px;
 }
 
-.bottom-input {
-}
-
 .button {
   position: absolute;
   bottom: 0px;
@@ -25,7 +22,4 @@
   box-sizing: border-box;
   height: 48px;
   transition: bottom 0.3s;
-}
-
-.focused {
 }
