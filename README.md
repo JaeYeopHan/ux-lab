@@ -38,6 +38,8 @@ Webview에서 input과 관련하여 맞딱뜨린 이슈들을 정리한다. 기�
 
 → 특정 모달 안에 있는 input도 가능하다! 즉 모달이 노출됨과 동시에 키패드를 띄울 수 있다.
 
+![route-immediate-open-keypad](./assets/route-immediate-open-keypad.mp4)
+
 ## Q3. 키패드 바깥 부분을 클릭해도 키패드가 내려가지 않도록 할 수 있나요?
 
 ### Try 1. `onBlur` 이벤트 발생 시, focus를 강제한다.
