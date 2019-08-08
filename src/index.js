@@ -1,12 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import './index.css'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+function App() {
+  const [isFocus, setFocus] = React.useState(false)
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+  return (
+    <div className={`container ${isFocus ? 'input-focused' : ''}`}>
+      <input
+        className="input"
+        type="text"
+        name="name"
+        onFocus={(e) => {
+          e.preventDefault()
+          console.log(e)
+          setFocus(true)
+        }}
+        onBlur={(e) => {
+          e.preventDefault()
+          setFocus(false)
+        }}
+        autoComplete="off"
+      />
+      <div>
+        <button className="button"></button>
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+);
