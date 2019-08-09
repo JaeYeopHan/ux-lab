@@ -4,8 +4,8 @@
 
 ### Table of Contents
 
-- [Phase 1. War of Input](#phase-1.-War-of-Input-tag)
-- [Phase 2. App Like Transition with Pagination](phase-2.-app-like-transition-with-pagination')
+- [Phase 1. War of Input](#phase-1-War-of-Input-tag)
+- [Phase 2. App Like Transition with Pagination](phase-2-app-like-transition-with-pagination')
 
 
 # Phase 1. War of Input tag
