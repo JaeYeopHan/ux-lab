@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import vConsole from 'vconsole'
 
 import { HomePage } from './components/Home'
-import { InputWorkSpace } from './components/InputWorkSpace'
-import { TransitionWorkSpace } from './components/TransitionWorkSpace'
+import { InputWorkSpace } from './components/input/InputWorkSpace'
+import { TransitionWorkSpace } from './components/transition/TransitionWorkSpace'
 
 import './reset.css'
 import './index.css'
@@ -15,8 +15,8 @@ function App() {
     <Router>
       <Switch>
         <Route path='/input' component={InputWorkSpace} />
+        <Route path='/transition' component={TransitionWorkSpace} />
         <Route exact={true} path='/' component={HomePage} />
-        <Route exact={true} path='/transition' component={TransitionWorkSpace} />
       </Switch>
     </Router>
   )
